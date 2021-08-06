@@ -82,12 +82,12 @@ void loop(){
     digitalWrite(5, HIGH);
     delay(99);
     Serial.println("Current CounterMIN: ");
-    Serial.println("\nMotor is now energising... ");
     Serial.println(CounterMIN);
     Serial.println("Start Loopruntime: ");
     Serial.println(Loopruntime);
     if(CounterAMPM == true){
         if(CounterMIN <= 20){
+            Serial.println("\nMotor is now Energising... ");
             time_measure_for_steps(stepUnit);
             time_measure_for_steps(-stepUnit); //~30 seconds, +1 on counter, 10 minutes is 20 on the counter
             counter();
