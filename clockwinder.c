@@ -78,12 +78,14 @@ void setup(){
 }
 
 void loop(){
+    Loopruntime = millis();
     digitalWrite(5, HIGH);
-    delay(100);
-
+    delay(99);
+    Serial.println("Current CounterMIN: ");
     Serial.println("\nMotor is now energising... ");
     Serial.println(CounterMIN);
-    small_stepper.setSpeed(200); //300 is the max speed supported by driver/stepper combo
+    Serial.println("Start Loopruntime: ");
+    Serial.println(Loopruntime);
     if(CounterAMPM == true){
         if(CounterMIN <= 20){
             time_measure_for_steps(stepUnit);
@@ -107,4 +109,7 @@ void loop(){
         //Serial.println("\n counterMIN = %d" ,CounterHR);
         //Serial.println("\n counterMIN = %d" ,CounterAMPM);
     }
+    Loopruntime = millis();
+    Serial.println("Loopruntime: ");
+    Serial.println(Loopruntime);
 }
