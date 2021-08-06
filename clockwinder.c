@@ -1,20 +1,26 @@
 #include <Stepper.h>
 #define STEPS 100
 #define LED_PIN 5
+#define stepPin1 8
+#define stepPin2 10
+#define stepPin3 9
+#define stepPin4 11
 
-Stepper small_stepper(STEPS, 8, 10, 9, 11); //Pins
+
+Stepper small_stepper(STEPS, stepPin1, stepPin2, stepPin3, stepPin4); //Stepper(steps, pin1, pin2, pin3, pin4) 
 
 int stepUnit = 4096;
 int Steps2Take = 0;
 unsigned long runtime=0;
-
+unsigned long Loopruntime =0;
 int CounterMIN=0;
 int CounterHR=0;
 bool CounterAMPM = true;
 
 
+
 void time_measure_for_steps(int steps){
-    delay(800);
+    delay(660);
     Steps2Take = steps; //2048 for 1 rotation, 1 rotation ever 4.5seconds
     //Therefore to turn backwards 6 times, Multiply -6/30
     runtime = millis();
@@ -43,6 +49,15 @@ void counter(){
         CounterHR = 0;
         flipAMPM();
     }
+}
+
+void denergiseStepper()
+{
+digitalWrite(stepPin1, LOW);
+digitalWrite(stepPin2, LOW);
+digitalWrite(stepPin3, LOW);
+digitalWrite(stepPin4, LOW);
+Serial.println("\nMotor is now Denergised... ");
 }
 
 void flipAMPM(){
