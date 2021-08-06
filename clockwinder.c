@@ -67,7 +67,7 @@ void flipAMPM(){
 void wait12hrs(){
     Serial.println("\nEntering Sleep Mode...");
     delay(720000);
-     Serial.println("\nWake from Sleep Mode...");
+    Serial.println("\nWake from Sleep Mode...");
 }
 
 void setup(){
