@@ -91,11 +91,13 @@ void loop(){
             counter();
         }
         else if(CounterMIN <= 120){
+            denergiseStepper();
             LED_toggle_30(LED_PIN); //30 seconds, 15 on, 15 off on LED
             counter();
         }
     }
     else if(CounterAMPM == false){
+        denergiseStepper();
         wait12hrs();
         flipAMPM();
     }
