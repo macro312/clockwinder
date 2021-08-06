@@ -85,6 +85,7 @@ void loop(){
     Serial.println(CounterMIN);
     Serial.println("Start Loopruntime: ");
     Serial.println(Loopruntime);
+    small_stepper.setSpeed(200); //300 is the max speed apparently)
     if(CounterAMPM == true){
         if(CounterMIN <= 20){
             Serial.println("\nMotor is now Energising... ");
